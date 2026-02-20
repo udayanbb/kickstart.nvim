@@ -233,7 +233,8 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- To make markdown preview work
-vim.g.mkdp_browser = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+--vim.g.mkdp_browser = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+vim.g.mkdp_browser = '/usr/bin/firefox'
 
 -- [[ Configure and install plugins ]]
 --
@@ -777,7 +778,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black', 'docformatter' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
