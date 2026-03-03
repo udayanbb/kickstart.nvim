@@ -233,8 +233,11 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- To make markdown preview work
---vim.g.mkdp_browser = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-vim.g.mkdp_browser = '/usr/bin/firefox'
+if vim.fn.has('mac') == 1 then
+  vim.g.mkdp_browser = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+else
+  vim.g.mkdp_browser = '/usr/bin/firefox'
+end
 
 -- [[ Configure and install plugins ]]
 --
