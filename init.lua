@@ -206,6 +206,20 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Paste over selection without losing register
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
+
+-- [[ Diffview ]]
+vim.api.nvim_create_user_command('Do', 'DiffviewOpen <args>', { nargs = '*' })
+vim.api.nvim_create_user_command('Dc', 'DiffviewClose', {})
+vim.api.nvim_create_user_command('Dh', 'DiffviewFileHistory <args>', { nargs = '*' })
+
+vim.keymap.set('n', '<leader>do', '<cmd>DiffviewOpen<cr>', { desc = '[D]iffview [O]pen' })
+vim.keymap.set('n', '<leader>dm', '<cmd>DiffviewOpen main...HEAD<cr>', { desc = '[D]iffview [M]ain diff' })
+vim.keymap.set('n', '<leader>dc', '<cmd>DiffviewClose<cr>', { desc = '[D]iffview [C]lose' })
+vim.keymap.set('n', '<leader>dh', '<cmd>DiffviewFileHistory %<cr>', { desc = '[D]iffview file [H]istory' })
+vim.keymap.set('n', '<leader>dH', '<cmd>DiffviewFileHistory<cr>', { desc = '[D]iffview repo [H]istory' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -254,6 +268,7 @@ require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'tpope/vim-commentary',
+  { 'sindrets/diffview.nvim', opts = {} },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
