@@ -219,6 +219,7 @@ vim.keymap.set('n', '<leader>dm', '<cmd>DiffviewOpen main...HEAD<cr>', { desc = 
 vim.keymap.set('n', '<leader>dc', '<cmd>DiffviewClose<cr>', { desc = '[D]iffview [C]lose' })
 vim.keymap.set('n', '<leader>dh', '<cmd>DiffviewFileHistory %<cr>', { desc = '[D]iffview file [H]istory' })
 vim.keymap.set('n', '<leader>dH', '<cmd>DiffviewFileHistory<cr>', { desc = '[D]iffview repo [H]istory' })
+vim.keymap.set('n', '<leader>ds', '<cmd>DiffviewOpen --staged<cr>', { desc = '[D]iffview [S]taged' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
